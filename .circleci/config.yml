@@ -16,16 +16,16 @@ jobs:
       - checkout
 
       - restore_cache:
-          - v1-dependencies-{{ checksum "pom.xml" }}
+          - SpringBootWebTest-{{ checksum "pom.xml" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - SpringBootWebTest-
       
       - run: mvn dependency:go-offline
       
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+          key: SpringBootWebTest-{{ checksum "pom.xml" }}
       
       - run: mvn package
       
@@ -33,4 +33,4 @@ jobs:
           path: target/surefire-reports
       
       - store_artifacts:
-          path: src/test/reports/DemoSpringBootWebTest-0.0.1-SNAPSHOT.jar
+          path: src/test/reports/SpringBootWebTest-0.0.1-SNAPSHOT.jar
