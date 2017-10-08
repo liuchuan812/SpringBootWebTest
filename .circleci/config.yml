@@ -16,7 +16,7 @@ jobs:
       - checkout
 
       - restore_cache:
-          - SpringBootWebTest-{{ checksum "pom.xml" }}
+          key: SpringBootWebTest-{{ checksum "pom.xml" }}
       
       - run: mvn dependency:go-offline
       
