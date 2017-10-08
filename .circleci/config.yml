@@ -17,8 +17,6 @@ jobs:
 
       - restore_cache:
           - SpringBootWebTest-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-          - SpringBootWebTest-
       
       - run: mvn dependency:go-offline
       
